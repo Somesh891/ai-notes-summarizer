@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeuroNotes AI</title>
+  <title>Summora AI</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,103 +19,134 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, rgba(59,130,246,0.18), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(139,92,246,0.18), transparent 30%),
-        #020617;
-
+      background: #0f172a;
       color: white;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
       padding: 30px;
-      overflow-y: auto;
     }
 
-    .container {
+    .app {
       width: 100%;
-      max-width: 1000px;
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 30px;
-      padding: 40px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-      position: relative;
-      overflow: hidden;
+      max-width: 1400px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
     }
 
-    .container::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: #2563eb;
-      filter: blur(120px);
-      opacity: 0.15;
-      top: -120px;
-      right: -120px;
+    .sidebar {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 28px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .top-bar {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo p {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .menu-title {
+      color: #64748b;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .status-box {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(59,130,246,0.15);
+    }
+
+    .status-box h4 {
+      margin-bottom: 6px;
+    }
+
+    .status-box p {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .main {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 28px;
+      padding: 34px;
+    }
+
+    .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 28px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .brand-icon {
-      width: 55px;
-      height: 55px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: bold;
-      box-shadow: 0 10px 30px rgba(59,130,246,0.35);
-    }
-
-    .brand h1 {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 3px;
-    }
-
-    .brand p {
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    .status {
+    .badge {
+      padding: 10px 16px;
+      border-radius: 999px;
       background: rgba(16,185,129,0.12);
       border: 1px solid rgba(52,211,153,0.2);
       color: #34d399;
-      padding: 10px 18px;
-      border-radius: 999px;
       font-size: 14px;
     }
 
-    .hero {
-      position: relative;
-      z-index: 2;
-      margin-bottom: 35px;
-    }
-
     .hero h2 {
-      font-size: 54px;
+      font-size: 48px;
       line-height: 1.05;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-weight: 800;
       max-width: 700px;
     }
@@ -128,45 +159,74 @@
 
     .hero p {
       color: #94a3b8;
-      max-width: 720px;
+      max-width: 760px;
       line-height: 1.8;
-      font-size: 17px;
+      margin-bottom: 28px;
     }
 
-    .main-grid {
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .mode {
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .mode.active {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border: none;
+      color: white;
+    }
+
+    .workspace {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      position: relative;
-      z-index: 2;
+      gap: 22px;
     }
 
-    .card {
+    .panel {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 24px;
-      padding: 24px;
+      border-radius: 22px;
+      padding: 22px;
     }
 
-    .card-title {
-      font-size: 18px;
+    .panel-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 18px;
-      color: #e2e8f0;
-      font-weight: 700;
+    }
+
+    .panel-title h3 {
+      font-size: 18px;
+    }
+
+    .small-badge {
+      color: #94a3b8;
+      font-size: 13px;
     }
 
     textarea {
       width: 100%;
-      height: 320px;
+      height: 420px;
       border: none;
-      resize: none;
       outline: none;
+      resize: none;
+      background: rgba(255,255,255,0.03);
       border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      padding: 18px;
+      padding: 20px;
       color: white;
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.8;
       border: 1px solid rgba(255,255,255,0.06);
       transition: 0.3s ease;
     }
@@ -180,14 +240,35 @@
       color: #64748b;
     }
 
-    .button-row {
+    .summary {
+      height: 420px;
+      overflow-y: auto;
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.9;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+    }
+
+    .summary::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .summary::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+    }
+
+    .action-row {
       margin-top: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .small-text {
+    .action-row p {
       color: #64748b;
       font-size: 13px;
     }
@@ -196,37 +277,17 @@
       border: none;
       background: linear-gradient(135deg, #2563eb, #7c3aed);
       color: white;
-      padding: 14px 26px;
+      padding: 14px 24px;
       border-radius: 16px;
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
       transition: 0.3s ease;
-      box-shadow: 0 10px 30px rgba(59,130,246,0.3);
     }
 
     button:hover {
       transform: translateY(-2px);
-      opacity: 0.95;
-    }
-
-    .summary-output {
-      height: 390px;
-      overflow-y: auto;
-      color: #e2e8f0;
-      line-height: 1.9;
-      white-space: pre-wrap;
-      font-size: 15px;
-      padding-right: 8px;
-    }
-
-    .summary-output::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .summary-output::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.15);
-      border-radius: 999px;
+      opacity: 0.96;
     }
 
     .loading {
@@ -248,9 +309,13 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
 
-      .main-grid {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace {
         grid-template-columns: 1fr;
       }
 
@@ -258,92 +323,130 @@
         font-size: 38px;
       }
 
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-      }
-
-      .container {
-        padding: 24px;
-      }
     }
 
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="app">
 
-    <div class="top-bar">
+    <div class="sidebar">
 
-      <div class="brand">
+      <div>
 
-        <div class="brand-icon">
-          ✦
-        </div>
+        <div class="logo">
 
-        <div>
-          <h1>NeuroNotes AI</h1>
-          <p>AI-powered intelligent note summarization system</p>
-        </div>
-
-      </div>
-
-      <div class="status">
-        ● AI Online
-      </div>
-
-    </div>
-
-    <div class="hero">
-
-      <h2>
-        Transform Long Notes Into
-        <span class="gradient">Smart Summaries</span>
-      </h2>
-
-      <p>
-        Paste lecture notes, research content, articles, documentation, or study material and instantly generate concise AI-powered summaries with key insights.
-      </p>
-
-    </div>
-
-    <div class="main-grid">
-
-      <div class="card">
-
-        <div class="card-title">
-          ✍ Input Notes
-        </div>
-
-        <textarea
-          id="notes"
-          placeholder="Paste your notes, article, lecture content, or study material here..."
-        ></textarea>
-
-        <div class="button-row">
-
-          <div class="small-text">
-            Powered by Groq + Llama 3.1
+          <div class="logo-icon">
+            ✦
           </div>
 
-          <button onclick="summarizeNotes()">
-            Summarize Notes
-          </button>
+          <div>
+            <h1>Summora</h1>
+            <p>AI study assistant</p>
+          </div>
 
+        </div>
+
+        <div class="menu-title">
+          AI Features
+        </div>
+
+        <div class="feature-card">
+          <h3>Smart Summaries</h3>
+          <p>Condense long study material into concise readable insights.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Research Notes</h3>
+          <p>Process lecture notes, articles, PDFs, and documentation quickly.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Productivity Workflow</h3>
+          <p>Designed for students, creators, researchers, and fast learning.</p>
         </div>
 
       </div>
 
-      <div class="card">
+      <div class="status-box">
+        <h4>System Status</h4>
+        <p>
+          Groq API connected successfully. AI summarization engine operational.
+        </p>
+      </div>
 
-        <div class="card-title">
-          ✦ AI Summary
+    </div>
+
+    <div class="main">
+
+      <div class="topbar">
+
+        <div class="hero">
+
+          <h2>
+            Turn Complex Notes Into
+            <span class="gradient">Clear Knowledge</span>
+          </h2>
+
+          <p>
+            Paste lectures, research content, study material, or documentation and generate AI-powered summaries instantly.
+          </p>
+
         </div>
 
-        <div id="summary" class="summary-output">
-          Your AI-generated summary will appear here...
+        <div class="badge">
+          ● AI Online
+        </div>
+
+      </div>
+
+      <div class="toolbar">
+        <div class="mode active">Smart Summary</div>
+        <div class="mode">Bullet Points</div>
+        <div class="mode">Study Notes</div>
+        <div class="mode">Quick Revision</div>
+      </div>
+
+      <div class="workspace">
+
+        <div class="panel">
+
+          <div class="panel-title">
+            <h3>Input Notes</h3>
+            <span class="small-badge">Paste content</span>
+          </div>
+
+          <textarea
+            id="notes"
+            placeholder="Paste your lecture notes, article, documentation, or research content here..."
+          ></textarea>
+
+          <div class="action-row">
+
+            <p>
+              Powered by Groq + Llama 3.1
+            </p>
+
+            <button onclick="summarizeNotes()">
+              Generate Summary
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="panel">
+
+          <div class="panel-title">
+            <h3>AI Summary</h3>
+            <span class="small-badge">Generated insights</span>
+          </div>
+
+          <div id="summary" class="summary">
+            Your AI-generated summary will appear here...
+          </div>
+
         </div>
 
       </div>
@@ -361,7 +464,6 @@
       const summaryBox = document.getElementById("summary");
 
       summaryBox.innerText = "Generating intelligent summary...";
-
       summaryBox.classList.add("loading");
 
       try {
